@@ -649,10 +649,15 @@ vim.cmd("ca sv vs")
 
 vim.cmd("noremap ZZ :w<CR>:Ex<CR>")
 
-vim.cmd("noremap <C-Down> 10j")
-vim.cmd("noremap <C-Up> 10k")
-vim.cmd("inoremap <C-Down> <C-o>10j")
-vim.cmd("inoremap <C-Up> <C-o>10k")
+vim.cmd("noremap <C-Down> 4j")
+vim.cmd("noremap <C-Up> 4k")
+vim.cmd("inoremap <C-Down> <C-o>4j")
+vim.cmd("inoremap <C-Up> <C-o>4k")
+
+vim.cmd("noremap <S-Down> 10j")
+vim.cmd("noremap <S-Up> 10k")
+vim.cmd("inoremap <S-Down> <C-o>10j")
+vim.cmd("inoremap <S-Up> <C-o>10k")
 
 
 vim.cmd(":set cursorline")

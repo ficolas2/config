@@ -42,7 +42,13 @@ inoremap <C-v> <C-r>+
 inoremap <C-p> <C-r>"
 vnoremap <C-c> "+y
 
-noremap <C-Down> 10j
-noremap <C-Up> 10k
-inoremap <C-Down> <C-o>10j
-inoremap <C-Up> <C-o>10k
+noremap <C-Down> 4j
+noremap <C-Up> 4k
+inoremap <C-Down> <C-o>4j
+inoremap <C-Up> <C-o>4k
+
+noremap <S-Down> 10j
+noremap <S-Up> 10k
+inoremap <S-Down> <C-o>10j
+inoremap <S-Up> <C-o>10k
+
