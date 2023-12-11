@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp -r nvim ~/.config
+cp -r kitty ~/.config
+cp .ideavimrc ~/.ideavimrc
+cp .tmux.conf ~/.tmux.conf
+
