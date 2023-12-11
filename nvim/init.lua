@@ -41,6 +41,15 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+
+vim.api.nvim_create_autocmd({"ColorScheme"}, {
+  pattern = {"*lua"},
+  callback = function(ev)
+    vim.cmd('hi comment ctermfg=NONE ctermbg=NONE guifg=#00FF00 guibg=NONE')
+  end
+})
+
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -68,29 +77,6 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
-
-  -- Plugins I (Nico) added
-  'pocco81/auto-save.nvim',
-  'windwp/nvim-autopairs',
-  'machakann/vim-highlightedyank',
-  'justinmk/vim-sneak',
-  {
-    'kylechui/nvim-surround',
-    version = "*",
-    event = "VeryLazy",
-    opts = {
-      surrounds = {
-        ["("] = {
-            add = { "(", ")" },
-            find = function()
-                return M.get_selection({ motion = "a(" })
-            end,
-            delete = "^(. ?)().-( ?.)()$",
-        },
-      };
-    },
-  },
-
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -174,15 +160,16 @@ require('lazy').setup({
     },
   },
 
+
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'onedark'
+      vim.cmd('hi iCursor guifg=#000000 guibg=#000000')
     end,
   },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -191,8 +178,10 @@ require('lazy').setup({
       options = {
         icons_enabled = false,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        --component_separators = '|',
+        --section_separators = '',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
       },
     },
   },
@@ -251,8 +240,9 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
+
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -307,8 +297,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
@@ -538,8 +528,8 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  rust_analyzer = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -636,30 +626,7 @@ require("nvim-surround").setup(
   }
 )
 
--- Vim remaps
-vim.cmd("xnoremap p pgvy")
-vim.cmd("inoremap <C-v> <C-r>+")
-vim.cmd("inoremap <C-p> <C-r>")
-vim.cmd("vnoremap <C-c> \"+y")
-vim.cmd("noremap <C-z> u")
-
-vim.cmd("ca hs sp")
-vim.cmd("ca sh sp")
-vim.cmd("ca sv vs")
-
-vim.cmd("noremap ZZ :w<CR>:Ex<CR>")
-
-vim.cmd("noremap <C-Down> 4j")
-vim.cmd("noremap <C-Up> 4k")
-vim.cmd("inoremap <C-Down> <C-o>4j")
-vim.cmd("inoremap <C-Up> <C-o>4k")
-
-vim.cmd("noremap <S-Down> 10j")
-vim.cmd("noremap <S-Up> 10k")
-vim.cmd("inoremap <S-Down> <C-o>10j")
-vim.cmd("inoremap <S-Up> <C-o>10k")
-
-
+vim.cmd(":set tabstop=4")
 vim.cmd(":set cursorline")
 vim.cmd(":set scrolloff=10")
 
@@ -671,6 +638,10 @@ vim.cmd([[let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro']])
 vim.cmd([[let g:netrw_liststyle = 3]])
 vim.cmd([[let g:netrw_winsize = 20]])
 
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
+
+require('custom.mappings')
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-

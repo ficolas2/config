@@ -36,19 +36,38 @@ set sneak
 
 set ignorecase
 
+"" Fast up/down with Shift + arrow
+noremap <S-Down> 5j
+noremap <S-Up> 5k
+inoremap <S-Down> <C-o>5j
+inoremap <S-Up> <C-o>5k
+
+"" Reverse next position and previous position
+nnoremap ; ,
+nnoremap , ;
+
 "" Copypaste remaps
 xnoremap p pgvy
 inoremap <C-v> <C-r>+
 inoremap <C-p> <C-r>"
 vnoremap <C-c> "+y
 
-noremap <C-Down> 4j
-noremap <C-Up> 4k
-inoremap <C-Down> <C-o>4j
-inoremap <C-Up> <C-o>4k
+"" Move between tabs
+noremap <C-Left> <C-w>h
+noremap <C-Down> <C-w>j
+noremap <C-Up> <C-w>k
+noremap <C-Right> <C-w>l
 
-noremap <S-Down> 10j
-noremap <S-Up> 10k
-inoremap <S-Down> <C-o>10j
-inoremap <S-Up> <C-o>10k
+"" Move lines
+nnoremap <A-Up> :m .-2<CR>==
+nnoremap <A-Down> :m .+1<CR>==
+
+inoremap <A-Up> <Esc>:m .-2<CR>==gi
+inoremap <A-Down> <Esc>:m .+1<CR>==gi
+
+vnoremap <A-Up> :m '<-2<CR>gv=gv
+vnoremap <A-Down> :m '>+1<CR>gv=gv
+
+"" Enter in normal mode
+nnoremap <CR> o<Esc>
 
