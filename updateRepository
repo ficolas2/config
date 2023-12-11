@@ -1,0 +1,2 @@
+dconf dump / | sed -n '/\[org.gnome.settings-daemon.plugins.media-keys/,/^$/p' > custom-shortcuts.conf # Export
+dconf dump / | sed -n '/^\[org.gnome.desktop.wm.keybindings/,/^\[/p' > custom-keybindings.conf
