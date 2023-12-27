@@ -71,3 +71,5 @@ vnoremap <A-Down> :m '>+1<CR>gv=gv
 "" Enter in normal mode
 nnoremap <CR> o<Esc>
 
+nnoremap <C-S-Left> gT
+nnoremap <C-S-Right> gt
