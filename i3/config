@@ -205,12 +205,7 @@ exec --no-startup-id /usr/lib/gsd-xsettings
 
 exec compton
 
-exec i3-msg 'exec google-chrome-stable;'
-exec i3-msg 'exec ~/Software/Obsidian-1.4.16.AppImage;'
-exec i3-msg 'exec spotify;'
-
-for_window [class="Spotify"] move container to workspace $ws9
-for_window [class="obsidian"] move container to workspace $ws10
+include ~/.config/i3/custom.conf
 
 # Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"

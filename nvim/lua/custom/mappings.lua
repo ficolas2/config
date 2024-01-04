@@ -1,4 +1,3 @@
-
 -- Fast up/down with Shift + arrow
 vim.cmd("noremap <S-Down> 5j")
 vim.cmd("noremap <S-Up> 5k")
@@ -62,4 +61,6 @@ vim.keymap.set("n", "gM", "[M")
 vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 
+-- Ctrl + del in insert mode
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-o>db', {noremap = true})
 

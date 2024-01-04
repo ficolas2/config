@@ -3,6 +3,8 @@
 cp -r nvim ~/.config
 cp -r kitty ~/.config
 cp -r i3  ~/.config
+cp -r gtk-3.0 ~/.config
+
 cp .ideavimrc ~/.ideavimrc
 cp .tmux.conf ~/.tmux.conf
 
