@@ -48,6 +48,7 @@ nnoremap , ;
 
 "" Copypaste remaps
 xnoremap p pgvy
+xnoremap <Space>p p
 inoremap <C-v> <C-r>+
 inoremap <C-p> <C-r>"
 vnoremap <C-c> "+y

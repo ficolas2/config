@@ -5,6 +5,7 @@ vim.cmd("inoremap <S-Down> <C-o>5j")
 vim.cmd("inoremap <S-Up> <C-o>5k")
 
 -- Copy paste stuff
+vim.cmd("xnoremap <Leader>p p") -- Paste over visual selection
 vim.cmd("xnoremap p pgvy") -- Paste over visual selection
 vim.cmd("inoremap <C-v> <C-r>+") -- Paste from system clipboard insert mode
 vim.cmd("vnoremap <C-c> \"+y") -- Copy to system clipboard
