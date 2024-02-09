@@ -1,0 +1,22 @@
+#!/bin/bash
+
+create_symlink() {
+    source=$1
+    target=$2
+
+    if [ -L "$target" ]; then
+        echo "Symlink $target already exists."
+    else
+        ln -s "$source" "$target"
+        echo "Symlink $target created."
+    fi
+}
+
+create_symlink ~/.config/repository/config/nvim/       		~/.config/nvim
+create_symlink ~/.config/repository/config/i3          		~/.config/i3
+create_symlink ~/.config/repository/config/kitty       		~/.config/kitty
+create_symlink ~/.config/repository/config/gtk-3.0     		~/.config/gtk-3.0
+create_symlink ~/.config/repository/config/.ideavimrc  		~/.ideavimrc
+create_symlink ~/.config/repository/config/.tmux.conf  		~/.tmux.conf
+
+
