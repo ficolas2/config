@@ -148,6 +148,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+bindsym $mod+c workspace C
+bindsym $mod+s workspace S
+bindsym $mod+o workspace O
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -229,6 +233,9 @@ bindsym $mod+Ctrl+Shift+7 move container to workspace number $ws7; workspace num
 bindsym $mod+Ctrl+Shift+8 move container to workspace number $ws8; workspace number $ws8
 bindsym $mod+Ctrl+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Ctrl+Shift+0 move container to workspace number $ws10; workspace number $ws10
+bindsym $mod+Ctrl+Shift+s move container to workspace S; workspace S
+bindsym $mod+Ctrl+Shift+o move container to workspace O; workspace O
+bindsym $mod+Ctrl+Shift+c move container to workspace C; workspace C
 
 # Touchpad
 exec xinput set-prop "SYNA32A4:00 06CB:CE17 Touchpad" "libinput Tapping Enabled" 1
@@ -243,3 +250,5 @@ bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
 bindsym $alt+Tab workspace back_and_forth
+
+exec --no-startup-id /usr/lib/gsd-xsettings
