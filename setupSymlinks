@@ -16,6 +16,7 @@ create_symlink ~/.config/repository/config/nvim/       		~/.config/nvim
 create_symlink ~/.config/repository/config/i3          		~/.config/i3
 create_symlink ~/.config/repository/config/kitty       		~/.config/kitty
 create_symlink ~/.config/repository/config/gtk-3.0     		~/.config/gtk-3.0
+create_symlink ~/.config/repository/config/compton.conf		~/.config/compton.conf
 create_symlink ~/.config/repository/config/.ideavimrc  		~/.ideavimrc
 create_symlink ~/.config/repository/config/.tmux.conf  		~/.tmux.conf
 
