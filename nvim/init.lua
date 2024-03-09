@@ -645,5 +645,8 @@ vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
 
 require('custom.mappings')
 
+vim.cmd("set winhighlight=Normal:MyNormal,NormalNC:MyNormalNC")
+vim.cmd("highlight MyNormalNC guibg=#01071c")
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
